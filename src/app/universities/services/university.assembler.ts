@@ -21,15 +21,8 @@ export class UniversityAssembler {
     }
   }
 
-  static toEntitiesFromResponse(response: UniversitiesResponse | UniversityResource[]): University[] {
-    if (Array.isArray(response)) {
-      return response.map(university => this.toEntityFromResource(university));
-    }
-
-    if (response && response.universities && Array.isArray(response.universities)) {
-      return response.universities.map(university => this.toEntityFromResource(university));
-    }
-
-    return [];
+  static toEntitiesFromResponse(resources: UniversityResource[]): University[] {
+    return resources.map(resource => this.toEntityFromResource(resource));
   }
 }
+

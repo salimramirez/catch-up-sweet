@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { LogoApiService } from '../../shared/services/logo-api.service';
 import { map, Observable } from 'rxjs';
 import { University } from '../model/university.entity';
-import { UniversitiesResponse} from './universities.response';
+import { UniversityResource } from './universities.response';
 import { environment } from '../../../environments/environment';
 import { UniversityAssembler } from './university.assembler';
 
@@ -17,8 +17,8 @@ export class HipolabsApiService {
   constructor(private http: HttpClient, private logoApiService: LogoApiService) { }
 
   getUniversities(): Observable<University[]> {
-    return this.http.get<UniversitiesResponse>(`${this.baseUrl}${this.hipolabsEndpoint}`).pipe(
-      map(response => UniversityAssembler.withLogoApiService(this.logoApiService).toEntitiesFromResponse(response))
+    return this.http.get<UniversityResource[]>(`${this.baseUrl}${this.hipolabsEndpoint}`).pipe(
+      map(resources => UniversityAssembler.withLogoApiService(this.logoApiService).toEntitiesFromResponse(resources))
     );
   }
 }
