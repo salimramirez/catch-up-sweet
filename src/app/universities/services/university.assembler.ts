@@ -1,5 +1,5 @@
 import { LogoApiService } from '../../shared/services/logo-api.service';
-import { UniversityResource, UniversitiesResponse } from './universities.response';
+import { UniversityResource } from './universities.response';
 import { University } from '../model/university.entity';
 
 export class UniversityAssembler {
