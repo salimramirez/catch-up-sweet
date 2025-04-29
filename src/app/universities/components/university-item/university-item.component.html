@@ -1,0 +1,19 @@
+<mat-card class="university-card">
+  <img mat-card-image [alt]="university.name" [src]="university.domainLogo"/>
+  <mat-card-header>
+    <mat-card-title>{{ university.name }}</mat-card-title>
+    <mat-card-subtitle>{{ university.country }} ({{ university.alpha_two_code }})</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="domain-text">{{ university.domains }}</p>
+    <p class="website-text">{{ university.web_pages }}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="actions-section">
+    <span class="default-spacer"></span>
+    <a mat-button color="primary" [href]="university.web_pages" target="_blank" rel="noopener" aria-label="Visit university website">
+      {{ 'university.read-more' | translate }}
+    </a>
+  </mat-card-actions>
+</mat-card>
